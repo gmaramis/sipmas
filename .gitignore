@@ -1,0 +1,92 @@
+# Laravel Framework
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# Laravel Storage & Cache
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/storage/app/public/*
+/bootstrap/cache/*
+
+# Keep storage structure
+!/storage/framework/cache/.gitkeep
+!/storage/framework/sessions/.gitkeep
+!/storage/framework/views/.gitkeep
+!/storage/logs/.gitkeep
+!/storage/app/public/.gitkeep
+!/bootstrap/cache/.gitkeep
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Composer
+composer.phar
+composer.lock
+
+# NPM
+package-lock.json
+yarn.lock
+
+# Testing
+/coverage
+.phpunit.cache
+
+# Backup files
+*.bak
+*.backup
+*.sql
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+
+# SSL Certificates
+*.pem
+*.key
+*.crt
+
+# Database
+*.sqlite
+*.db
+
+# Logs
+*.log
+logs/
+
+# Environment specific
+.env.local
+.env.staging
+.env.testing
+
+# Application specific
+/public/uploads/*
+/public/evidence/*
+/public/documents/*

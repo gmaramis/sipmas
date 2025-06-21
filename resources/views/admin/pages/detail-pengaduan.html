@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pengaduan - SIPMAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-polri-blue text-white transition-transform duration-300 transform shadow-xl" id="sidebar">
+        <div class="flex items-center justify-center h-16 border-b border-gray-700/50">
+            <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-10 w-auto mr-2">
+            <span class="text-xl font-bold">SIPMAS Admin</span>
+        </div>
+        <nav class="mt-6">
+            <div class="px-4 space-y-2">
+                <a href="admin.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-home w-6"></i>
+                    <span class="mx-4">Dashboard</span>
+                </a>
+                <a href="pengaduan.html" class="flex items-center px-4 py-3 text-white bg-polri-red rounded-lg shadow-lg">
+                    <i class="fas fa-exclamation-circle w-6"></i>
+                    <span class="mx-4">Pengaduan</span>
+                </a>
+                <a href="pengguna.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-users w-6"></i>
+                    <span class="mx-4">Pengguna</span>
+                </a>
+                <a href="statistik.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-chart-bar w-6"></i>
+                    <span class="mx-4">Statistik</span>
+                </a>
+                <a href="petugas.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-user-shield w-6"></i>
+                    <span class="mx-4">Petugas</span>
+                </a>
+                <a href="pengaturan.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-cog w-6"></i>
+                    <span class="mx-4">Pengaturan</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <!-- Top Navigation -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Detail Pengaduan</h1>
+                <p class="text-gray-600">Informasi lengkap pengaduan</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button id="notificationButton" class="bg-white p-2 rounded-lg shadow-md hover:bg-gray-50 relative transition-colors duration-200">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="absolute -top-1 -right-1 bg-polri-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-polri-blue flex items-center justify-center text-white shadow-md">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-gray-800 font-medium">Admin</span>
+                        <button class="text-sm text-polri-red hover:text-red-700">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="mb-6">
+            <a href="pengaduan.html" class="inline-flex items-center text-polri-blue hover:text-blue-700 transition-colors duration-200">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Kembali ke Daftar Pengaduan
+            </a>
+        </div>
+
+        <!-- Detail Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Information -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Status Card -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800">Status Pengaduan</h2>
+                            <p class="text-gray-600">ID: #PAD-2024-001</p>
+                        </div>
+                        <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full font-medium">Dalam Proses</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-medium text-gray-800">60%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complaint Details -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Detail Pengaduan</h2>
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                            <h3 class="text-lg font-semibold text-blue-700 mb-2">Judul Pengaduan</h3>
+                            <p class="text-blue-800 font-medium">Pengaduan Kecelakaan Lalu Lintas di Jalan Raya Manado</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                            <h3 class="text-lg font-semibold text-green-700 mb-2">Deskripsi</h3>
+                            <p class="text-green-800">Terjadi kecelakaan lalu lintas di Jalan Raya Manado pada tanggal 15 Maret 2024 pukul 14:30 WITA. Kecelakaan melibatkan 2 kendaraan dan menyebabkan kemacetan panjang. Mohon penanganan segera.</p>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-500">
+                            <h3 class="text-lg font-semibold text-purple-700 mb-2">Lokasi</h3>
+                            <p class="text-purple-800 font-medium">Jalan Raya Manado, Kelurahan Bahu, Kecamatan Malalayang, Kota Manado</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Bukti Pendukung</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <img src="../assets/img/contoh-kecelakaan.jpg" alt="Bukti Kecelakaan" class="w-full h-48 object-cover rounded-lg">
+                                <img src="../assets/img/contoh-kecelakaan-2.jpg" alt="Bukti Kecelakaan" class="w-full h-48 object-cover rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Timeline Pengaduan</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-800">Pengaduan Diterima</p>
+                                <p class="text-sm text-gray-600">15 Maret 2024, 14:35 WITA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-shield text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-800">Ditangani oleh Petugas</p>
+                                <p class="text-sm text-gray-600">15 Maret 2024, 14:40 WITA</p>
+                                <p class="text-sm text-gray-600">Petugas: Aiptu Budi Santoso</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-clock text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-800">Dalam Penanganan</p>
+                                <p class="text-sm text-gray-600">15 Maret 2024, 14:45 WITA</p>
+                                <p class="text-sm text-gray-600">Status: Tim sedang menuju lokasi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Information -->
+            <div class="space-y-6">
+                <!-- Reporter Info -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Informasi Pelapor</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm text-gray-600">Nama</p>
+                            <p class="font-medium text-gray-800">John Doe</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Email</p>
+                            <p class="font-medium text-gray-800">john.doe@email.com</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">No. Telepon</p>
+                            <p class="font-medium text-gray-800">0812-3456-7890</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Alamat</p>
+                            <p class="font-medium text-gray-800">Jl. Contoh No. 123, Manado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Aksi</h2>
+                    <div class="space-y-3">
+                        <button onclick="openUpdateStatusModal()" class="w-full bg-polri-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-edit mr-2"></i>
+                            Update Status
+                        </button>
+                        <button class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-check mr-2"></i>
+                            Selesaikan
+                        </button>
+                        <button class="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-times mr-2"></i>
+                            Tolak
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Catatan</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-800">Aiptu Budi Santoso</p>
+                                <p class="text-sm text-gray-600">Tim sedang dalam perjalanan menuju lokasi. Perkiraan tiba dalam 15 menit.</p>
+                                <p class="text-xs text-gray-500 mt-1">15 Maret 2024, 14:45 WITA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <textarea class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent" rows="3" placeholder="Tambah catatan..."></textarea>
+                        <button class="mt-2 w-full bg-polri-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Kirim Catatan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Status Modal -->
+    <div id="updateStatusModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Update Status Pengaduan</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                        <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent">
+                            <option value="diterima">Diterima</option>
+                            <option value="dalam_proses">Dalam Proses</option>
+                            <option value="ditangani">Sedang Ditangani</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="ditolak">Ditolak</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Petugas Penanganan</label>
+                        <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent">
+                            <option value="">Pilih Petugas</option>
+                            <option value="1">Aiptu Budi Santoso</option>
+                            <option value="2">Bripka Andi Wijaya</option>
+                            <option value="3">Aipda Rudi Hartono</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Prioritas</label>
+                        <select class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent">
+                            <option value="rendah">Rendah</option>
+                            <option value="sedang">Sedang</option>
+                            <option value="tinggi">Tinggi</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Catatan</label>
+                        <textarea class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent" rows="3" placeholder="Tambahkan catatan untuk update status..."></textarea>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" onclick="closeUpdateStatusModal()" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition duration-300">
+                            Batal
+                        </button>
+                        <button type="submit" class="px-4 py-2 bg-polri-blue text-white rounded-lg hover:bg-blue-700 transition duration-300">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openUpdateStatusModal() {
+            document.getElementById('updateStatusModal').classList.remove('hidden');
+        }
+
+        function closeUpdateStatusModal() {
+            document.getElementById('updateStatusModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('updateStatusModal');
+            if (event.target == modal) {
+                closeUpdateStatusModal();
+            }
+        }
+    </script>
+</body>
+</html> 

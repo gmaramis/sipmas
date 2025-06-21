@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik - SIPMAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-polri-blue text-white transition-transform duration-300 transform shadow-xl" id="sidebar">
+        <div class="flex items-center justify-center h-16 border-b border-gray-700/50">
+            <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-10 w-auto mr-2">
+            <span class="text-xl font-bold">SIPMAS Admin</span>
+        </div>
+        <nav class="mt-6">
+            <div class="px-4 space-y-2">
+                <a href="admin.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-home w-6"></i>
+                    <span class="mx-4">Dashboard</span>
+                </a>
+                <a href="pengaduan.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-exclamation-circle w-6"></i>
+                    <span class="mx-4">Pengaduan</span>
+                </a>
+                <a href="pengguna.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-users w-6"></i>
+                    <span class="mx-4">Pengguna</span>
+                </a>
+                <a href="statistik.html" class="flex items-center px-4 py-3 text-white bg-polri-red rounded-lg shadow-lg">
+                    <i class="fas fa-chart-bar w-6"></i>
+                    <span class="mx-4">Statistik</span>
+                </a>
+                <a href="petugas.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-user-shield w-6"></i>
+                    <span class="mx-4">Petugas</span>
+                </a>
+                <a href="pengaturan.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-cog w-6"></i>
+                    <span class="mx-4">Pengaturan</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <!-- Top Navigation -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Statistik</h1>
+                <p class="text-gray-600">Analisis data pengaduan</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button id="notificationButton" class="bg-white p-2 rounded-lg shadow-md hover:bg-gray-50 relative transition-colors duration-200">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="absolute -top-1 -right-1 bg-polri-red text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                </div>
+                <select class="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-transparent shadow-md">
+                    <option value="week">Minggu Ini</option>
+                    <option value="month">Bulan Ini</option>
+                    <option value="year">Tahun Ini</option>
+                </select>
+                <button class="bg-polri-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
+                    <i class="fas fa-download mr-2"></i>Export Data
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-polri-blue flex items-center justify-center text-white shadow-md">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-gray-800 font-medium">Admin</span>
+                        <button class="text-sm text-polri-red hover:text-red-700">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100 text-blue-500">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500">Total Pengaduan</p>
+                        <p class="text-2xl font-bold">1,234</p>
+                        <p class="text-sm text-green-500">+12% dari bulan lalu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100 text-green-500">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500">Selesai</p>
+                        <p class="text-2xl font-bold">890</p>
+                        <p class="text-sm text-green-500">72% tingkat penyelesaian</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-yellow-100 text-yellow-500">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500">Rata-rata Waktu</p>
+                        <p class="text-2xl font-bold">2.5 Hari</p>
+                        <p class="text-sm text-green-500">-0.5 hari dari bulan lalu</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-red-100 text-red-500">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500">Pengguna Aktif</p>
+                        <p class="text-2xl font-bold">567</p>
+                        <p class="text-sm text-green-500">+8% dari bulan lalu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Trend Pengaduan -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Trend Pengaduan</h2>
+                <canvas id="trendChart" height="300"></canvas>
+            </div>
+            <!-- Jenis Pengaduan -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Jenis Pengaduan</h2>
+                <canvas id="typeChart" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Additional Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Lokasi Pengaduan -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Lokasi Pengaduan</h2>
+                <canvas id="locationChart" height="300"></canvas>
+            </div>
+            <!-- Waktu Respon -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-bold text-gray-800 mb-4">Waktu Respon</h2>
+                <canvas id="responseChart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data untuk grafik
+        const trendData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+            datasets: [{
+                label: 'Pengaduan',
+                data: [65, 59, 80, 81, 56, 55],
+                borderColor: '#0A1F44',
+                tension: 0.1
+            }]
+        };
+
+        const typeData = {
+            labels: ['Kriminal', 'Lalu Lintas', 'Narkoba', 'Korupsi', 'Lainnya'],
+            datasets: [{
+                data: [30, 25, 15, 20, 10],
+                backgroundColor: ['#0A1F44', '#C8102E', '#4CAF50', '#FFC107', '#9C27B0']
+            }]
+        };
+
+        const locationData = {
+            labels: ['Manado', 'Tomohon', 'Bitung', 'Minahasa', 'Lainnya'],
+            datasets: [{
+                data: [40, 25, 15, 12, 8],
+                backgroundColor: ['#0A1F44', '#C8102E', '#4CAF50', '#FFC107', '#9C27B0']
+            }]
+        };
+
+        const responseData = {
+            labels: ['< 1 jam', '1-3 jam', '3-6 jam', '6-12 jam', '> 12 jam'],
+            datasets: [{
+                label: 'Jumlah Kasus',
+                data: [30, 45, 15, 8, 2],
+                backgroundColor: '#0A1F44'
+            }]
+        };
+
+        // Konfigurasi grafik
+        const chartConfig = {
+            type: 'line',
+            data: trendData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        };
+
+        const pieConfig = {
+            type: 'pie',
+            data: typeData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        };
+
+        const doughnutConfig = {
+            type: 'doughnut',
+            data: locationData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        };
+
+        const barConfig = {
+            type: 'bar',
+            data: responseData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        };
+
+        // Inisialisasi grafik
+        new Chart(document.getElementById('trendChart'), chartConfig);
+        new Chart(document.getElementById('typeChart'), pieConfig);
+        new Chart(document.getElementById('locationChart'), doughnutConfig);
+        new Chart(document.getElementById('responseChart'), barConfig);
+
+        // Event listener untuk filter periode
+        document.querySelector('select').addEventListener('change', function() {
+            // Implementasi logika filter periode
+            console.log('Period changed:', this.value);
+        });
+    </script>
+</body>
+</html> 

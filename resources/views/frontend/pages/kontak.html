@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - SIPMAS</title>
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">SIPMAS</span>
+                            <span class="text-xs text-gray-300">Polres Minahasa</span>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Desktop menu -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red">Daftar</a>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100 text-center">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red text-center">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section dengan Parallax -->
+        <div class="relative pt-32 pb-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('../assets/img/contact-bg.jpg');"></div>
+            <div class="absolute inset-0 parallax-overlay"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Hubungi Kami</h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                        Tim kami siap membantu Anda. Silakan hubungi kami melalui kontak di bawah ini atau isi formulir untuk pertanyaan dan bantuan.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-5xl mb-6">📞</div>
+                        <h3 class="text-2xl font-bold text-polri-blue mb-4">Telepon</h3>
+                        <p class="text-gray-600 text-lg">(021) 721-8000</p>
+                        <p class="text-gray-500 mt-2">Senin - Jumat: 08:00 - 16:00</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-5xl mb-6">✉️</div>
+                        <h3 class="text-2xl font-bold text-polri-blue mb-4">Email</h3>
+                        <p class="text-gray-600 text-lg">info@sipmas.polri.go.id</p>
+                        <p class="text-gray-500 mt-2">Respon dalam 24 jam</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-5xl mb-6">📍</div>
+                        <h3 class="text-2xl font-bold text-polri-blue mb-4">Alamat</h3>
+                        <p class="text-gray-600 text-lg">Jl. Trunojoyo No.3</p>
+                        <p class="text-gray-600 text-lg">Jakarta Selatan, 12110</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-3xl font-bold text-center text-polri-blue mb-8">
+                            Kirim Pesan
+                        </h2>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bg-polri-blue text-white px-8 py-4 rounded-lg hover:bg-polri-red transition duration-300 transform hover:scale-105 font-semibold shadow-lg">
+                                    Kirim Pesan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="py-20 bg-polri-blue">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-white mb-6">Kontak Darurat</h2>
+                <p class="text-xl text-gray-200 mb-8">Untuk situasi darurat, silakan hubungi:</p>
+                <div class="text-6xl font-bold text-polri-red mb-4">110</div>
+                <p class="text-xl text-gray-300">Layanan 24 jam</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">SIPMAS</h3>
+                            <p class="text-gray-400">
+                                Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Tautan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Beranda</a></li>
+                            <li><a href="tentang.html" class="text-gray-400 hover:text-white">Tentang</a></li>
+                            <li><a href="kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Layanan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="pengaduan.html" class="text-gray-400 hover:text-white">Buat Pengaduan</a></li>
+                            <li><a href="pelajari.html" class="text-gray-400 hover:text-white">Pelajari Lebih Lanjut</a></li>
+                            <li><a href="syarat-ketentuan.html" class="text-gray-400 hover:text-white">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Email: info@sipmas.id</li>
+                            <li>Telepon: (021) 1234567</li>
+                            <li>Alamat: Jl. Contoh No. 123, Jakarta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 SIPMAS. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading state
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const content = document.querySelector('.content');
+            
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                content.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html> 

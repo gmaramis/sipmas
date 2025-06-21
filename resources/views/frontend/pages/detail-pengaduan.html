@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pengaduan - SIPMAS</title>
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-polri-blue text-white transition-transform duration-300 transform" id="sidebar">
+        <div class="flex items-center justify-center h-16 border-b border-gray-700">
+            <img src="img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-10 w-auto mr-2">
+            <span class="text-xl font-bold">SIPMAS Admin</span>
+        </div>
+        <nav class="mt-6">
+            <div class="px-4 space-y-2">
+                <a href="admin.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
+                    <i class="fas fa-home w-6"></i>
+                    <span class="mx-4">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-white bg-polri-red rounded-lg">
+                    <i class="fas fa-exclamation-circle w-6"></i>
+                    <span class="mx-4">Pengaduan</span>
+                </a>
+                <a href="pengguna.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
+                    <i class="fas fa-users w-6"></i>
+                    <span class="mx-4">Pengguna</span>
+                </a>
+                <a href="statistik.html" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
+                    <i class="fas fa-chart-bar w-6"></i>
+                    <span class="mx-4">Statistik</span>
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg">
+                    <i class="fas fa-cog w-6"></i>
+                    <span class="mx-4">Pengaturan</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Top Navigation -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Detail Pengaduan</h1>
+                <p class="text-gray-600">ID Pengaduan: #1234</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="admin.html" class="bg-white px-4 py-2 rounded-lg shadow hover:bg-gray-50 text-gray-600">
+                    <i class="fas fa-arrow-left mr-2"></i>Kembali
+                </a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Informasi Pengaduan -->
+            <div class="md:col-span-2 space-y-6">
+                <!-- Status Card -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-gray-800">Status Pengaduan</h2>
+                        <span class="px-4 py-2 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium">Dalam Proses</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Pengaduan Diterima</p>
+                                <p class="text-xs text-gray-500">20 Maret 2024, 10:30 WITA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Sedang Diproses</p>
+                                <p class="text-xs text-gray-500">20 Maret 2024, 11:15 WITA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center opacity-50">
+                            <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-white">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-900">Selesai</p>
+                                <p class="text-xs text-gray-500">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail Pengaduan -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Detail Pengaduan</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Jenis Pengaduan</label>
+                            <p class="mt-1 text-gray-900">Kriminal</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                            <p class="mt-1 text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Lokasi Kejadian</label>
+                            <p class="mt-1 text-gray-900">Jl. Contoh No. 123, Kota Manado</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Tanggal Kejadian</label>
+                            <p class="mt-1 text-gray-900">19 Maret 2024, 20:00 WITA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lampiran -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Lampiran</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border rounded-lg p-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-image text-2xl text-gray-400 mr-3"></i>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">foto-kejadian.jpg</p>
+                                    <p class="text-xs text-gray-500">2.5 MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border rounded-lg p-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-file-pdf text-2xl text-gray-400 mr-3"></i>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">surat-pengaduan.pdf</p>
+                                    <p class="text-xs text-gray-500">1.8 MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Informasi Pelapor -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Informasi Pelapor</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Nama</label>
+                            <p class="mt-1 text-gray-900">John Doe</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">NIK</label>
+                            <p class="mt-1 text-gray-900">1234567890123456</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">No. Telepon</label>
+                            <p class="mt-1 text-gray-900">081234567890</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <p class="mt-1 text-gray-900">john.doe@email.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aksi -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Aksi</h2>
+                    <div class="space-y-3">
+                        <button class="w-full bg-polri-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-edit mr-2"></i>Update Status
+                        </button>
+                        <button class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-check mr-2"></i>Mark as Selesai
+                        </button>
+                        <button class="w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                            <i class="fas fa-trash mr-2"></i>Hapus Pengaduan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Riwayat -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Riwayat</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-user text-blue-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Admin</p>
+                                <p class="text-xs text-gray-500">20 Maret 2024, 11:15 WITA</p>
+                                <p class="text-sm text-gray-600">Status diubah menjadi "Dalam Proses"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-green-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-gray-900">Sistem</p>
+                                <p class="text-xs text-gray-500">20 Maret 2024, 10:30 WITA</p>
+                                <p class="text-sm text-gray-600">Pengaduan diterima</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani aksi tombol
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Implementasi aksi sesuai kebutuhan
+                console.log('Button clicked:', this.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html> 

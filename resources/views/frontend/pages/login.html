@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SIPMAS</title>
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">SIPMAS</span>
+                            <span class="text-xs text-gray-300">Polres Minahasa</span>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Desktop menu -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red">Daftar</a>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100 text-center">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red text-center">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Login Section -->
+        <div class="min-h-screen pt-24 pb-12 flex flex-col justify-center sm:px-6 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-5xl">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Left Side - Form -->
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <div class="text-center md:text-left">
+                                <h2 class="text-3xl font-bold text-polri-blue mb-2">
+                                    Selamat Datang Kembali
+                                </h2>
+                                <p class="text-gray-600 mb-8">
+                                    Masuk ke akun Anda untuk melanjutkan
+                                </p>
+                            </div>
+
+                            <form class="space-y-6" action="#" method="POST">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">
+                                        Email
+                                    </label>
+                                    <div class="mt-1 relative">
+                                        <input id="email" name="email" type="email" autocomplete="email" required 
+                                            class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300">
+                                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="password" class="block text-sm font-medium text-gray-700">
+                                        Kata Sandi
+                                    </label>
+                                    <div class="mt-1 relative">
+                                        <input id="password" name="password" type="password" autocomplete="current-password" required 
+                                            class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-polri-blue focus:border-polri-blue transition duration-300">
+                                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <input id="remember_me" name="remember_me" type="checkbox" 
+                                            class="h-4 w-4 text-polri-blue focus:ring-polri-blue border-gray-300 rounded transition duration-300">
+                                        <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                                            Ingat saya
+                                        </label>
+                                    </div>
+
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-polri-red hover:text-polri-blue transition duration-300">
+                                            Lupa kata sandi?
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" 
+                                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-polri-blue hover:bg-polri-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-polri-blue transition duration-300 transform hover:scale-105">
+                                        Masuk
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class="mt-8">
+                                <div class="relative">
+                                    <div class="absolute inset-0 flex items-center">
+                                        <div class="w-full border-t border-gray-300"></div>
+                                    </div>
+                                    <div class="relative flex justify-center text-sm">
+                                        <span class="px-2 bg-white text-gray-500">
+                                            Atau masuk dengan
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 grid grid-cols-2 gap-3">
+                                    <div>
+                                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition duration-300">
+                                            <span class="sr-only">Masuk dengan Google</span>
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition duration-300">
+                                            <span class="sr-only">Masuk dengan Facebook</span>
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="mt-8 text-center text-sm text-gray-600">
+                                Belum punya akun? 
+                                <a href="register.html" class="font-medium text-polri-red hover:text-polri-blue transition duration-300">
+                                    Daftar di sini
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- Right Side - Illustration -->
+                        <div class="hidden md:block md:w-1/2 bg-polri-blue relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-polri-blue to-polri-red opacity-90"></div>
+                            <div class="relative h-full flex flex-col justify-center items-center text-white p-12">
+                                <div class="text-center">
+                                    <h3 class="text-3xl font-bold mb-6">SIPMAS</h3>
+                                    <p class="text-lg mb-8 text-gray-200">
+                                        Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                                    </p>
+                                    <div class="space-y-6">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg>
+                                            </div>
+                                            <div class="text-left">
+                                                <h4 class="font-semibold">Keamanan Terjamin</h4>
+                                                <p class="text-sm text-gray-300">Data Anda dilindungi dengan enkripsi tingkat tinggi</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                </svg>
+                                            </div>
+                                            <div class="text-left">
+                                                <h4 class="font-semibold">Proses Cepat</h4>
+                                                <p class="text-sm text-gray-300">Pengaduan Anda akan diproses dengan cepat dan efisien</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <div class="text-left">
+                                                <h4 class="font-semibold">Layanan 24/7</h4>
+                                                <p class="text-sm text-gray-300">Akses layanan kapan saja dan di mana saja</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">SIPMAS</h3>
+                            <p class="text-gray-400">
+                                Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Tautan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Beranda</a></li>
+                            <li><a href="tentang.html" class="text-gray-400 hover:text-white">Tentang</a></li>
+                            <li><a href="kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Layanan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="pengaduan.html" class="text-gray-400 hover:text-white">Buat Pengaduan</a></li>
+                            <li><a href="pelajari.html" class="text-gray-400 hover:text-white">Pelajari Lebih Lanjut</a></li>
+                            <li><a href="syarat-ketentuan.html" class="text-gray-400 hover:text-white">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Email: info@sipmas.id</li>
+                            <li>Telepon: (021) 1234567</li>
+                            <li>Alamat: Jl. Contoh No. 123, Jakarta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 SIPMAS. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading state
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const content = document.querySelector('.content');
+            
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                content.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html> 

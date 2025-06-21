@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - SIPMAS</title>
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #C8102E;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #C8102E;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">SIPMAS</span>
+                            <span class="text-xs text-gray-300">Polres Minahasa</span>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Desktop menu -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red">Daftar</a>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100 text-center">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red text-center">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section dengan Parallax -->
+        <div class="relative pt-32 pb-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('../assets/img/about-bg.jpg');"></div>
+            <div class="absolute inset-0 parallax-overlay"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Tentang SIPMAS</h1>
+                    <p class="text-xl text-gray-200 mb-8">
+                        Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visi & Misi Section -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-4xl text-polri-blue mb-6">🎯</div>
+                        <h2 class="text-3xl font-bold text-polri-blue mb-4">Visi</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Menjadi platform pengaduan masyarakat terdepan yang mengutamakan kecepatan, 
+                            keamanan, dan kepuasan pengguna dalam menyelesaikan permasalahan masyarakat.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-4xl text-polri-blue mb-6">🎯</div>
+                        <h2 class="text-3xl font-bold text-polri-blue mb-4">Misi</h2>
+                        <ul class="text-gray-600 text-lg space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-polri-red mr-2">•</span>
+                                Menyediakan layanan pengaduan yang mudah diakses dan digunakan
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-polri-red mr-2">•</span>
+                                Memastikan keamanan dan kerahasiaan data pengguna
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-polri-red mr-2">•</span>
+                                Memberikan respon cepat dan solusi efektif
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-polri-red mr-2">•</span>
+                                Meningkatkan transparansi dalam penanganan pengaduan
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sejarah Section dengan Timeline -->
+        <div class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-polri-blue mb-12">Sejarah Perjalanan</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-12">
+                        <div class="timeline-item pl-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                                <div class="text-polri-red font-bold mb-2">2020</div>
+                                <h3 class="text-xl font-semibold text-polri-blue mb-2">Awal Mula</h3>
+                                <p class="text-gray-600">
+                                    SIPMAS pertama kali diluncurkan sebagai inisiatif digitalisasi layanan pengaduan masyarakat.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item pl-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                                <div class="text-polri-red font-bold mb-2">2021</div>
+                                <h3 class="text-xl font-semibold text-polri-blue mb-2">Pengembangan Sistem</h3>
+                                <p class="text-gray-600">
+                                    Sistem diperbarui dengan fitur keamanan yang lebih baik dan antarmuka yang lebih user-friendly.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item pl-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                                <div class="text-polri-red font-bold mb-2">2022</div>
+                                <h3 class="text-xl font-semibold text-polri-blue mb-2">Integrasi Nasional</h3>
+                                <p class="text-gray-600">
+                                    SIPMAS terintegrasi dengan sistem pengaduan nasional untuk penanganan yang lebih efektif.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item pl-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                                <div class="text-polri-red font-bold mb-2">2023</div>
+                                <h3 class="text-xl font-semibold text-polri-blue mb-2">Inovasi Teknologi</h3>
+                                <p class="text-gray-600">
+                                    Penerapan teknologi AI untuk analisis dan penanganan pengaduan yang lebih cepat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tim Kami Section -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-polri-blue mb-12">Tim Kami</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center transform hover:scale-105 transition duration-300">
+                        <div class="relative w-48 h-48 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-polri-red rounded-full opacity-20 blur-xl"></div>
+                            <img src="../assets/img/team-1.jpg" alt="Tim SIPMAS" class="w-full h-full object-cover rounded-full relative z-10">
+                        </div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-2">Tim Pengembangan</h3>
+                        <p class="text-gray-600">
+                            Bertanggung jawab atas pengembangan dan pemeliharaan sistem
+                        </p>
+                    </div>
+                    <div class="text-center transform hover:scale-105 transition duration-300">
+                        <div class="relative w-48 h-48 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-polri-red rounded-full opacity-20 blur-xl"></div>
+                            <img src="../assets/img/team-2.jpg" alt="Tim SIPMAS" class="w-full h-full object-cover rounded-full relative z-10">
+                        </div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-2">Tim Layanan</h3>
+                        <p class="text-gray-600">
+                            Menangani dan memproses pengaduan masyarakat
+                        </p>
+                    </div>
+                    <div class="text-center transform hover:scale-105 transition duration-300">
+                        <div class="relative w-48 h-48 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-polri-red rounded-full opacity-20 blur-xl"></div>
+                            <img src="../assets/img/team-3.jpg" alt="Tim SIPMAS" class="w-full h-full object-cover rounded-full relative z-10">
+                        </div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-2">Tim Dukungan</h3>
+                        <p class="text-gray-600">
+                            Memberikan bantuan dan solusi untuk pengguna
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="py-20 bg-polri-blue">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-white mb-6">Bergabung Bersama Kami</h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Jadilah bagian dari perubahan untuk layanan pengaduan yang lebih baik
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="register.html" class="bg-white text-polri-blue px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105 font-semibold shadow-lg">
+                        Daftar Sekarang
+                    </a>
+                    <a href="kontak.html" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-polri-blue transition duration-300 transform hover:scale-105 font-semibold">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">SIPMAS</h3>
+                            <p class="text-gray-400">
+                                Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Tautan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Beranda</a></li>
+                            <li><a href="tentang.html" class="text-gray-400 hover:text-white">Tentang</a></li>
+                            <li><a href="kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Layanan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="pengaduan.html" class="text-gray-400 hover:text-white">Buat Pengaduan</a></li>
+                            <li><a href="pelajari.html" class="text-gray-400 hover:text-white">Pelajari Lebih Lanjut</a></li>
+                            <li><a href="syarat-ketentuan.html" class="text-gray-400 hover:text-white">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Email: info@sipmas.id</li>
+                            <li>Telepon: (021) 1234567</li>
+                            <li>Alamat: Jl. Contoh No. 123, Jakarta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 SIPMAS. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading state
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const content = document.querySelector('.content');
+            
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                content.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html> 

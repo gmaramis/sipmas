@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pengaduan Masyarakat - Polres</title>
+    <!-- Preload resources -->
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">SIPMAS</span>
+                            <span class="text-xs text-gray-300">Polres Minahasa</span>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Desktop menu -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red">Daftar</a>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100 text-center">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red text-center">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section dengan Parallax -->
+        <div class="relative min-h-screen flex items-center overflow-hidden">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/polri-bg.jpg');"></div>
+            <div class="absolute inset-0 parallax-overlay"></div>
+            <div class="container mx-auto px-6 py-32 relative z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2">
+                        <h1 class="text-6xl font-bold text-white mb-6 leading-tight">
+                            Layanan Pengaduan Masyarakat <span class="text-polri-red">Digital</span>
+                        </h1>
+                        <p class="text-gray-200 text-xl mb-8 leading-relaxed">
+                            Sampaikan pengaduan Anda dengan mudah dan aman. Kami siap membantu menyelesaikan permasalahan Anda dengan cepat dan profesional.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="register.html" class="bg-polri-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition duration-300 transform hover:scale-105 text-center font-semibold shadow-lg">
+                                Buat Pengaduan
+                            </a>
+                            <a href="pelajari.html" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-polri-blue transition duration-300 transform hover:scale-105 text-center font-semibold">
+                                Pelajari Lebih Lanjut
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center items-center">
+                        <div class="relative flex justify-center items-center w-full">
+                            <div class="absolute -inset-4 bg-polri-red rounded-full opacity-20 blur-2xl"></div>
+                            <img src="../assets/img/polri-presisi.png" alt="Logo Polri Presisi" class="w-3/5 md:w-1/2 w-40 mx-auto rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 transform hover:rotate-3 relative z-10 floating">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistik Section dengan Parallax -->
+        <div class="relative py-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/pattern-bg.jpg');"></div>
+            <div class="absolute inset-0 bg-polri-blue opacity-90"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6 transform hover:scale-105 transition duration-300">
+                        <div class="text-5xl font-bold mb-2 text-white">10K+</div>
+                        <p class="text-gray-300 text-lg">Pengaduan Ditangani</p>
+                    </div>
+                    <div class="p-6 transform hover:scale-105 transition duration-300">
+                        <div class="text-5xl font-bold mb-2 text-white">24/7</div>
+                        <p class="text-gray-300 text-lg">Layanan Aktif</p>
+                    </div>
+                    <div class="p-6 transform hover:scale-105 transition duration-300">
+                        <div class="text-5xl font-bold mb-2 text-white">98%</div>
+                        <p class="text-gray-300 text-lg">Kepuasan Pengguna</p>
+                    </div>
+                    <div class="p-6 transform hover:scale-105 transition duration-300">
+                        <div class="text-5xl font-bold mb-2 text-white">1 Jam</div>
+                        <p class="text-gray-300 text-lg">Waktu Respon Rata-rata</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Humas Polri Section dengan Parallax -->
+        <div class="relative py-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/humas-bg.jpg');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-90"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0 flex justify-center items-center">
+                        <div class="relative flex justify-center items-center w-full">
+                            <div class="absolute -inset-4 bg-polri-red rounded-full opacity-20 blur-2xl"></div>
+                            <img src="../assets/img/humas-polri.png" alt="Humas Polri" class="w-2/5 md:w-2/5 w-32 mx-auto rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 transform hover:-rotate-3 relative z-10 floating">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12 flex flex-col items-center md:items-start">
+                        <h2 class="text-5xl font-bold text-polri-blue mb-6">
+                            Humas Polri
+                        </h2>
+                        <p class="text-gray-700 text-xl mb-8 leading-relaxed">
+                            Humas Polri siap melayani dan memberikan informasi terkait pengaduan masyarakat. Kami berkomitmen untuk memberikan pelayanan yang profesional dan transparan.
+                        </p>
+                        <div class="flex space-x-4 w-full justify-center md:justify-start">
+                            <a href="#" class="bg-polri-blue text-white px-8 py-4 rounded-lg hover:bg-polri-red transition duration-300 transform hover:scale-105 font-semibold shadow-lg">
+                                Hubungi Humas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prosedur Pelaporan Section dengan Parallax -->
+        <div class="relative py-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/prosedur-bg.jpg');"></div>
+            <div class="absolute inset-0 bg-white opacity-95"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-5xl font-bold text-center text-polri-blue mb-4">
+                    Prosedur Pelaporan yang Mudah & Aman
+                </h2>
+                <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto text-xl">
+                    Kami memastikan setiap pengaduan ditangani dengan cepat, profesional, dan transparan melalui prosedur yang terstandarisasi.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-polri-blue text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">1</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue text-center">Daftar Akun</h3>
+                        <p class="text-gray-600 text-center text-lg">Buat akun dengan data diri yang valid untuk memastikan keamanan</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-polri-blue text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">2</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue text-center">Isi Formulir</h3>
+                        <p class="text-gray-600 text-center text-lg">Lengkapi detail pengaduan dengan jelas dan lengkap</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-polri-blue text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">3</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue text-center">Verifikasi</h3>
+                        <p class="text-gray-600 text-center text-lg">Tim kami akan memverifikasi dan memproses pengaduan Anda</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-polri-blue text-white w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">4</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue text-center">Tindak Lanjut</h3>
+                        <p class="text-gray-600 text-center text-lg">Dapatkan update status pengaduan melalui sistem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section dengan Parallax -->
+        <div class="relative py-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/features-bg.jpg');"></div>
+            <div class="absolute inset-0 bg-gray-50 opacity-95"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-5xl font-bold text-center text-polri-blue mb-8">
+                    Mengapa Menggunakan SIPMAS?
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-blue text-6xl mb-6">🔒</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue">Aman & Terpercaya</h3>
+                        <p class="text-gray-600 text-lg">Sistem terverifikasi dengan validasi data pengguna dan enkripsi tingkat tinggi</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-blue text-6xl mb-6">⚡</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue">Cepat & Efisien</h3>
+                        <p class="text-gray-600 text-lg">Proses pengaduan yang cepat dan mudah dengan sistem yang terintegrasi</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-blue text-6xl mb-6">📱</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-polri-blue">Akses Mudah</h3>
+                        <p class="text-gray-600 text-lg">Dapat diakses kapan saja dan di mana saja melalui berbagai perangkat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section dengan Parallax -->
+        <div class="relative py-20">
+            <div class="absolute inset-0 parallax" style="background-image: url('img/cta-bg.jpg');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-polri-blue to-polri-red opacity-90"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h2 class="text-5xl font-bold mb-6 text-white">Siap Melayani Anda</h2>
+                <p class="text-2xl mb-8 max-w-2xl mx-auto text-white">
+                    Bergabunglah dengan SIPMAS untuk menyampaikan pengaduan Anda dengan mudah dan aman.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="register.html" class="bg-white text-polri-blue px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105 font-semibold shadow-lg">
+                        Daftar Sekarang
+                    </a>
+                    <a href="kontak.html" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-polri-blue transition duration-300 transform hover:scale-105 font-semibold">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-polri-blue text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0 flex items-center space-x-4">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-2xl font-bold">SIPMAS</h3>
+                            <p class="text-gray-400 text-lg">Sistem Pengaduan Masyarakat</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-gray-300 transition duration-300 text-lg">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-300 transition duration-300 text-lg">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-300 transition duration-300 text-lg">Kontak</a>
+                        <a href="#" class="hover:text-gray-300 transition duration-300 text-lg">Bantuan</a>
+                    </div>
+                </div>
+                <div class="mt-8 text-center text-gray-400">
+                    <p class="text-lg">&copy; 2024 SIPMAS. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Loading state
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const content = document.querySelector('.content');
+            
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                content.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

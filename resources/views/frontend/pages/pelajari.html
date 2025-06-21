@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelajari Lebih Lanjut - SIPMAS</title>
+    <link rel="preload" href="../assets/img/polres-minahasa.png" as="image">
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="stylesheet" href="../assets/css/frontend.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'polri-blue': '#0A1F44',
+                        'polri-red': '#C8102E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Loading state -->
+    <div class="loading" id="loading">
+        <img src="../assets/img/polres-minahasa.png" alt="Loading...">
+    </div>
+    
+    <!-- Main content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="bg-polri-blue text-white shadow-lg fixed w-full z-50 backdrop-blur-md bg-opacity-90">
+            <div class="container mx-auto px-6 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto mr-4 object-contain hover:opacity-90 transition-opacity duration-300">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold">SIPMAS</span>
+                            <span class="text-xs text-gray-300">Polres Minahasa</span>
+                        </div>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button type="button" id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Desktop menu -->
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red">Daftar</a>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="hover:text-gray-200">Beranda</a>
+                        <a href="tentang.html" class="hover:text-gray-200">Tentang</a>
+                        <a href="kontak.html" class="hover:text-gray-200">Kontak</a>
+                        <a href="login.html" class="bg-white text-polri-blue px-4 py-2 rounded-md hover:bg-gray-100 text-center">Masuk</a>
+                        <a href="register.html" class="border border-white px-4 py-2 rounded-md hover:bg-polri-red text-center">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="bg-white pt-32 pb-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold text-polri-blue mb-4">
+                        Pelajari Lebih Lanjut tentang SIPMAS
+                    </h1>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        Temukan informasi lengkap tentang cara kerja SIPMAS, jenis pengaduan yang dapat disampaikan, dan bagaimana kami menangani setiap pengaduan dengan profesional.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jenis Pengaduan Section -->
+        <div class="bg-gray-50 py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-polri-blue mb-12">
+                    Jenis Pengaduan yang Dapat Disampaikan
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-4xl mb-4">🚔</div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-4">Pengaduan Kriminal</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Pencurian</li>
+                            <li>• Penipuan</li>
+                            <li>• Kekerasan</li>
+                            <li>• Kejahatan lainnya</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-4xl mb-4">👮</div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-4">Pengaduan Lalu Lintas</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Pelanggaran lalu lintas</li>
+                            <li>• Kecelakaan</li>
+                            <li>• Rambu rusak</li>
+                            <li>• Jalan rusak</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-polri-red text-4xl mb-4">⚖️</div>
+                        <h3 class="text-xl font-semibold text-polri-blue mb-4">Pengaduan Umum</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Pelayanan publik</li>
+                            <li>• Kesejahteraan</li>
+                            <li>• Ketertiban umum</li>
+                            <li>• Keluhan lainnya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proses Penanganan Section -->
+        <div class="bg-white py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-polri-blue mb-4">
+                    Proses Penanganan Pengaduan
+                </h2>
+                <p class="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Kami memastikan setiap pengaduan ditangani dengan cepat, profesional, dan transparan melalui prosedur yang terstandarisasi.
+                </p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                            <div class="bg-polri-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
+                            <h3 class="text-xl font-semibold text-polri-blue mb-3">Pendaftaran & Verifikasi</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Buat akun dengan data valid
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Verifikasi email & nomor telepon
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Lengkapi profil pengguna
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                            <div class="bg-polri-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
+                            <h3 class="text-xl font-semibold text-polri-blue mb-3">Pengisian Formulir</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Pilih jenis pengaduan
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Isi detail kejadian
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Lampirkan bukti pendukung
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                            <div class="bg-polri-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
+                            <h3 class="text-xl font-semibold text-polri-blue mb-3">Verifikasi & Klasifikasi</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Validasi kelengkapan data
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Penentuan prioritas
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Penetapan tim penanganan
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                            <div class="bg-polri-blue text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
+                            <h3 class="text-xl font-semibold text-polri-blue mb-3">Penanganan & Tindak Lanjut</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Proses penanganan kasus
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Update status berkala
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-polri-red mr-2">✓</span>
+                                    Evaluasi hasil penanganan
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Visual -->
+                    <div class="mt-12 relative">
+                        <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-polri-blue transform -translate-y-1/2"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="text-center">
+                                <div class="bg-white p-4 rounded-full shadow-md inline-block">
+                                    <span class="text-2xl">📝</span>
+                                </div>
+                                <p class="mt-2 text-sm text-gray-600">Pendaftaran</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white p-4 rounded-full shadow-md inline-block">
+                                    <span class="text-2xl">📋</span>
+                                </div>
+                                <p class="mt-2 text-sm text-gray-600">Formulir</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white p-4 rounded-full shadow-md inline-block">
+                                    <span class="text-2xl">🔍</span>
+                                </div>
+                                <p class="mt-2 text-sm text-gray-600">Verifikasi</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white p-4 rounded-full shadow-md inline-block">
+                                    <span class="text-2xl">✅</span>
+                                </div>
+                                <p class="mt-2 text-sm text-gray-600">Selesai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-gray-50 py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-polri-blue mb-12">
+                    Pertanyaan yang Sering Diajukan
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full px-6 py-4 text-left focus:outline-none">
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-semibold text-polri-blue">Apa itu SIPMAS?</span>
+                                <span class="text-polri-red">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <p class="text-gray-600">
+                                SIPMAS (Sistem Pengaduan Masyarakat) adalah platform digital yang memungkinkan masyarakat untuk menyampaikan pengaduan secara online dengan mudah, cepat, dan aman.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full px-6 py-4 text-left focus:outline-none">
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-semibold text-polri-blue">Bagaimana cara mengajukan pengaduan?</span>
+                                <span class="text-polri-red">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <p class="text-gray-600">
+                                Untuk mengajukan pengaduan, Anda perlu mendaftar terlebih dahulu, kemudian login dan isi formulir pengaduan dengan lengkap. Pastikan untuk menyertakan bukti pendukung jika ada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full px-6 py-4 text-left focus:outline-none">
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-semibold text-polri-blue">Berapa lama waktu penanganan pengaduan?</span>
+                                <span class="text-polri-red">+</span>
+                            </div>
+                        </button>
+                        <div class="px-6 py-4 bg-gray-50">
+                            <p class="text-gray-600">
+                                Waktu penanganan bervariasi tergantung kompleksitas kasus. Namun, kami berkomitmen untuk menangani setiap pengaduan secepat mungkin dan memberikan update status secara berkala.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                        <img src="../assets/img/polres-minahasa.png" alt="Logo Polres Minahasa" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">SIPMAS</h3>
+                            <p class="text-gray-400">
+                                Sistem Pengaduan Masyarakat Digital yang Melayani dengan Presisi
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Tautan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white">Beranda</a></li>
+                            <li><a href="tentang.html" class="text-gray-400 hover:text-white">Tentang</a></li>
+                            <li><a href="kontak.html" class="text-gray-400 hover:text-white">Kontak</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Layanan</h3>
+                        <ul class="space-y-2">
+                            <li><a href="pengaduan.html" class="text-gray-400 hover:text-white">Buat Pengaduan</a></li>
+                            <li><a href="pelajari.html" class="text-gray-400 hover:text-white">Pelajari Lebih Lanjut</a></li>
+                            <li><a href="syarat-ketentuan.html" class="text-gray-400 hover:text-white">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Email: info@sipmas.id</li>
+                            <li>Telepon: (021) 1234567</li>
+                            <li>Alamat: Jl. Contoh No. 123, Jakarta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 SIPMAS. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading state
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            const content = document.querySelector('.content');
+            
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                content.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                button.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('hidden');
+                
+                // Update icon
+                const icon = button.querySelector('svg');
+                if (isExpanded) {
+                    icon.classList.remove('rotate-180');
+                } else {
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
