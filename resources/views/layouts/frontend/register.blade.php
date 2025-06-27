@@ -60,6 +60,34 @@
                 </div>
 
                 <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">
+                        Nomor Telepon
+                    </label>
+                    <div class="mt-1">
+                        <input id="phone" name="phone" type="tel" autocomplete="tel" required 
+                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-polri-blue focus:border-polri-blue sm:text-sm @error('phone') border-red-500 @enderror"
+                            value="{{ old('phone') }}">
+                        @error('phone')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">
+                        Alamat
+                    </label>
+                    <div class="mt-1">
+                        <textarea id="address" name="address" rows="3" required 
+                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-polri-blue focus:border-polri-blue sm:text-sm @error('address') border-red-500 @enderror"
+                            placeholder="Masukkan alamat lengkap">{{ old('address') }}</textarea>
+                        @error('address')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">
                         Password
                     </label>
@@ -131,10 +159,12 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     // Validasi form
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
     const password = document.getElementById('password').value;
     const passwordConfirmation = document.getElementById('password_confirmation').value;
     
-    if (!name || !email || !password || !passwordConfirmation) {
+    if (!name || !email || !phone || !address || !password || !passwordConfirmation) {
         e.preventDefault();
         alert('Semua field harus diisi');
         return;

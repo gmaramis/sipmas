@@ -117,4 +117,31 @@ class AuthController extends Controller
         }
         return redirect()->route('home');
     }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'phone' => 'required|string|max:20',
+            'address' => 'required|string|max:500',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        // Assign role 'user' secara default
+        $user->assignRole('user');
+
+        // Login otomatis setelah register
+        Auth::login($user);
+
+        return redirect()->route('user.dashboard')->with('success', 'Registrasi berhasil! Selamat datang di SIPMAS.');
+    }
 } 

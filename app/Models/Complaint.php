@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Complaint extends Model
 {
@@ -107,7 +108,7 @@ class Complaint extends Model
     {
         if (!$this->processed_at) return null;
         
-        return $this->processed_at->diffInHours($this->created_at);
+        return Carbon::parse($this->processed_at)->diffInHours($this->created_at);
     }
 
     /**
@@ -117,7 +118,7 @@ class Complaint extends Model
     {
         if (!$this->completed_at) return null;
         
-        return $this->completed_at->diffInHours($this->processed_at);
+        return Carbon::parse($this->completed_at)->diffInHours($this->processed_at);
     }
 
     /**
@@ -127,7 +128,7 @@ class Complaint extends Model
     {
         if (!$this->completed_at) return null;
         
-        return $this->completed_at->diffInHours($this->created_at);
+        return Carbon::parse($this->completed_at)->diffInHours($this->created_at);
     }
 
     /**
